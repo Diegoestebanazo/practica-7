@@ -1,0 +1,36 @@
+<%- include("../header"); %>
+    <div class="col-12">
+        <h1>Lista de tareas</h1>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <% tareas.forEach(tareas=> { %>
+                    <tr>
+                        <td>
+                            <%= tareas.nombre %>
+                        </td>
+                        <td>
+                            <a href="/tareas/editar/<%= tareas.id %>" class="btn btn-warning">
+                                Editar
+                            </a>
+                        </td>
+                        <td>
+                            <a href="/tareas/eliminar/<%= tareas.id %>" class="btn btn-danger">
+                                Eliminar
+                            </a>
+                        </td>
+                    </tr>
+                    <% }) %>
+            </tbody>
+        </table>
+        <a href="/tareas/agregar" class="btn btn-primary mb-2">
+            Nueva tarea
+        </a>
+    </div>
+<%- include("../footer"); %>
